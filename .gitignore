@@ -1,4 +1,4 @@
 *.map
-sass/
+*.log
 .sass-cache/
 *.sh
