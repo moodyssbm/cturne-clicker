@@ -1,4 +1,8 @@
 body {
   font-family: Helvetica, sans-serif; }
 
+#app {
+  border: 1px solid black;
+  border-radius: 10px; }
+
 /*# sourceMappingURL=main.css.map */
