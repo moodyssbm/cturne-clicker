@@ -52,10 +52,11 @@ function getDemonStats(demon) {
 
 // making new Demons
 let pixie = new Demon('Pixie', 15, 0.1);
-let matador = new Demon('Matador', 100, 1);
-let thor = new Demon('Thor', 1100, 8);
-let dante = new Demon('Dante', 12000, 47);
-let party = [pixie, matador, thor, dante];
+let jackfrost = new Demon('JackFrost', 100, 1);
+let matador = new Demon('Matador', 1100, 8);
+let thor = new Demon('Thor', 12000, 47);
+let dante = new Demon('Dante', 130000, 260);
+let party = [pixie, jackfrost, matador, thor, dante];
 
 // Drawing the demons on screen
 for(i=0; i!=party.length; i++) {
