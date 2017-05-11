@@ -2,7 +2,8 @@
 let app = document.getElementById('app'),
     macca = document.getElementById('macca'),
     danteButton = document.getElementById('danteButton'),
-    demonArea = document.getElementById('demonArea');
+    demonArea = document.getElementById('demonArea'),
+    upgradeArea = document.getElementById('upgradeArea');
 
 // The main clock of the game. We will set this later
 let mainClock;
@@ -71,6 +72,47 @@ function buy(demon) {
   }
 
   updateDemonStats();
+}
+
+// Skill class
+let Skill = function(name, price, mult, partyMem, improveClick, desc) {
+  this.name = '<h4>';
+  this.name += name;
+  this.name += ' <input type="button" value="Learn" onclick="learn(';
+  this.name += name.toLowerCase();
+  this.name += ')"></h4>';
+  this.price = price;
+  this.mult = mult;
+  this.learned = false;
+  this.partyMem = partyMem;
+  this.improveClick = improveClick;
+  this.desc = '<p> Cost: ';
+  this.desc += this.price;
+  this.desc += ' Macca // Effect: ';
+  this.desc += desc;
+  this.desc += '</p>';
+
+}
+
+// Making new skills
+let dia = new Skill('Dia', 100, 2, 0, true, 'Doubles MpS for Pixie(s) and clicking');
+let skillCards = [dia];
+
+// Learning skills function
+function learn(skill) {
+  if(skill.learned == false && score >= skill.price) {
+    party[skill.partyMem].mps = party[skill.partyMem].mps * skill.mult;
+    skill.learned = true;
+    score -= skill.price;
+    if(skill.improveClick) { clickVal = clickVal * skill.mult }
+    updateDemonStats();
+  }
+}
+
+// drawing the skills on screen
+for(i=0; i!=skillCards.length; i++) {
+  upgradeArea.innerHTML += skillCards[i].name;
+  upgradeArea.innerHTML += skillCards[i].desc;
 }
 
 // Function that returns proper FPS value
