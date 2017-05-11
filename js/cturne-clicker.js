@@ -10,11 +10,13 @@ let mainClock;
 // Global variables and constants
 let score = 0,
     clickVal = 1,
-    unitGrowth = 1.2;
+    unitGrowth = 1.2,
+    lifetime = 0;
 
 // Making our button give us Macca based on the mult
 danteButton.addEventListener('click', function() {
   score += clickVal;
+  lifetime += clickVal;
   updateMacca();
 });
 
@@ -43,7 +45,10 @@ function getDemonStats(demon) {
 
 // making new Demons
 let pixie = new Demon('Pixie', 15, 0.1);
-let party = [pixie];
+let matador = new Demon('Matador', 100, 1);
+let thor = new Demon('Thor', 1100, 8);
+let dante = new Demon('Dante', 130000, 260);
+let party = [pixie, matador, thor, dante];
 
 // Drawing the demons on screen
 for(i=0; i!=party.length; i++) {
@@ -79,6 +84,7 @@ function updateDemonStats() {
 mainClock = setInterval(function() {
   for(i=0; i!=party.length; i++) {
     score += party[i].mps * party[i].owned;
+    lifetime += party[i].mps * party[i].owned;
   }
 
   updateMacca();
