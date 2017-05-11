@@ -13,6 +13,12 @@ let score = 0,
     unitGrowth = 1.2,
     lifetime = 0;
 
+// Master Switch Board
+let learnedDia = false,
+    learnedRedCapot = false,
+    learnedMaziodyne = false,
+    learnedEandI = false;
+
 // Making our button give us Macca based on the mult
 danteButton.addEventListener('click', function() {
   score += clickVal;
@@ -47,7 +53,7 @@ function getDemonStats(demon) {
 let pixie = new Demon('Pixie', 15, 0.1);
 let matador = new Demon('Matador', 100, 1);
 let thor = new Demon('Thor', 1100, 8);
-let dante = new Demon('Dante', 130000, 260);
+let dante = new Demon('Dante', 12000, 47);
 let party = [pixie, matador, thor, dante];
 
 // Drawing the demons on screen
