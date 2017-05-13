@@ -97,7 +97,11 @@ let Skill = function(name, price, mult, partyMem, improveClick, desc) {
 
 // Making new skills
 let dia = new Skill('Dia', 100, 2, 0, true, 'Doubles MpS for Pixie(s) and clicking');
-let skillCards = [dia];
+let mabufu = new Skill('Mabufu', 300, 2, 1, false, 'Doubles MpS for Jack Frost(s)');
+let redcapote = new Skill('RedCapote', 3000, 4, 2, true, 'Quadruples MpS for Matador(s) and clicking');
+let maziodyne = new Skill('Maziodyne', 25000, 2, 3, false, 'Doubles MpS for Thor(s)');
+let eandi = new Skill('EandI', 333333, 2, 4, false, 'Doubles MpS for Dante(s)');
+let skillCards = [dia, mabufu, redcapote, maziodyne, eandi];
 
 // Learning skills function
 function learn(skill) {
